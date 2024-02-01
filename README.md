@@ -66,7 +66,12 @@ Please expand the downloaded ImageMaskDataset and place them under <b>./dataset<
         └─masks
 </pre>
  
-<b>Ovarian-Tumor Dataset Statistics</b><br>
+Please run the following bat file to count the number of images in this dataset<br>
+<pre>
+dataset_stat.bat
+</pre> 
+, which generates the following <b>Ovarian-Tumor_Statistics.png</b> file.<br>
+<b>Ovarian-Tumor_Statistics</b><br>
 <img src ="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/Ovarian-Tumor_Statistics.png" width="512" height="auto"><br>
 
 
