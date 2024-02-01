@@ -166,6 +166,7 @@ Evaluation console output:<br>
 As shown above, the accuracy 0.9789 for test dataset is higher than the accuracy 0.7592 of
 the first experiment <a href="https://github.com/sarah-antillia/Image-Segmentation-Ovarian-Tumor"></a><br>
 
+Inference result of the first Image-Segmentation-Ovarian-Tumor:<br>
 <img src="https://github.com/sarah-antillia/Image-Segmentation-Ovarian-Tumor/blob/main/asset/evaluate_console_output_at_epoch_33_0728.png"><br>
 
 <h2>
