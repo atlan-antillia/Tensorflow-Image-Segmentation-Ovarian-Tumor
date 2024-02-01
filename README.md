@@ -67,7 +67,7 @@ Please expand the downloaded ImageMaskDataset and place them under <b>./dataset<
 </pre>
  
 <b>Ovarian-Tumor Dataset Statistics</b><br>
-<img src ="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/Ovarian-Tumor_Statistics.png" width="640" height="auto"><br>
+<img src ="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/Ovarian-Tumor_Statistics.png" width="512" height="auto"><br>
 
 
 <h3>
