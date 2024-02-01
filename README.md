@@ -161,12 +161,11 @@ and run the following bat file to evaluate TensorflowUNet model for Ovarian-Tumo
 <pre>
 python ../../../src/TensorflowUNetEvaluator.py ./train_eval_infer.config
 </pre>
-Evaluation console output:<br>
+<b>Evaluation console output:</b><br>
 <img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/asset/evaluate_console_output_at_epoch_42.png" width="720" height="auto"><br>
 As shown above, the accuracy 0.9789 for test dataset is higher than the accuracy 0.7592 of
-the first experiment <a href="https://github.com/sarah-antillia/Image-Segmentation-Ovarian-Tumor"></a><br>
-
-Inference result of the first Image-Segmentation-Ovarian-Tumor:<br>
+the first experiment <a href="https://github.com/sarah-antillia/Image-Segmentation-Ovarian-Tumor">Image-Segmentation-Ovarian-Tumor</a><br>
+<b>Evaluation result of the first Image-Segmentation-Ovarian-Tumor</b>:<br>
 <img src="https://github.com/sarah-antillia/Image-Segmentation-Ovarian-Tumor/blob/main/asset/evaluate_console_output_at_epoch_33_0728.png"><br>
 
 <h2>
