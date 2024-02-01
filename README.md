@@ -15,7 +15,7 @@ you may try other Tensorflow UNet Models:<br>
 <li><a href="./src/TensorflowUNet3Plus.py">TensorflowUNet3Plus.py</a></li>
 <br>
 
-Please see also the previous experimetn <a href="https://github.com/sarah-antillia/Image-Segmentation-Ovarian-Tumor">
+Please see also the previous experiment <a href="https://github.com/sarah-antillia/Image-Segmentation-Ovarian-Tumor">
 Image-Segmentation-Ovarian-Tumor"</a>
 <br>
 
@@ -195,24 +195,24 @@ Enlarged samples<br>
 <table>
 <tr>
 <td>
-test/images/10088_HFH_010.jpg<br>
+test/images/15.jpg<br>
 <img src="./dataset/Ovarian-Tumor/test/images/15.jpg" width="512" height="auto">
 
 </td>
 <td>
-Inferred merged/10088_HFH_010.jpg<br>
+Inferred merged/15.jpg<br>
 <img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/test_output_merged/15.jpg" width="512" height="auto">
 </td> 
 </tr>
 
 <tr>
 <td>
-test/images/10100_HFH_007.jpg<br>
+test/images/50.jpg<br>
 <img src="./dataset/Ovarian-Tumor/test/images/50.jpg" width="512" height="auto">
 
 </td>
 <td>
-Inferred merged/10100_HFH_007.jpg<br>
+Inferred merged/50.jpg<br>
 <img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/test_output_merged/50.jpg" width="512" height="auto">
 </td> 
 </tr>
