@@ -166,7 +166,7 @@ python ../../../src/TensorflowUNetEvaluator.py ./train_eval_infer.config
 As shown above, the accuracy 0.9789 for test dataset is higher than the accuracy 0.7592 of
 the first experiment <a href="https://github.com/sarah-antillia/Image-Segmentation-Ovarian-Tumor">Image-Segmentation-Ovarian-Tumor</a><br>
 <b>Evaluation result of the first Image-Segmentation-Ovarian-Tumor</b>:<br>
-<img src="https://github.com/sarah-antillia/Image-Segmentation-Ovarian-Tumor/blob/main/asset/evaluate_console_output_at_epoch_33_0728.png"><br>
+<img src="https://github.com/sarah-antillia/Image-Segmentation-Ovarian-Tumor/blob/main/asset/evaluate_console_output_at_epoch_33_0728.png" width="720" height="auto"><br>
 
 <h2>
 3.3 Inference
