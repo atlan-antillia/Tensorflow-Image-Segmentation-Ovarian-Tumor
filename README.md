@@ -7,14 +7,14 @@ As a first trial, we use the simple UNet Model
 <a href="./src/TensorflowUNet.py">TensorflowSlightlyFlexibleUNet</a> for this Ovarian-Tumor Segmentation.<br>
 As shown in <a href="https://github.com/sarah-antillia/Tensorflow-Image-Segmentation-API">Tensorflow-Image-Segmentation-API</a>.
 you may try other Tensorflow UNet Models:<br>
-<pre>
+
 <li><a href="./src/TensorflowSwinUNet.py">TensorflowSwinUNet.py</a></li>
 <li><a href="./src/TensorflowMultiResUNet.py">TensorflowMultiResUNet.py</a></li>
 <li><a href="./src/TensorflowAttentionUNet.py">TensorflowAttentionUNet.py</a></li>
 <li><a href="./src/TensorflowEfficientUNet.py">TensorflowEfficientUNet.py</a></li>
 <li><a href="./src/TensorflowUNet3Plus.py">TensorflowUNet3Plus.py</a></li>
 <br>
-</pre>
+
 Please see also the previous experimetn <a href="https://github.com/sarah-antillia/Image-Segmentation-Ovarian-Tumor">
 Image-Segmentation-Ovarian-Tumor"</a>
 <br>
