@@ -1,10 +1,51 @@
-<h2>Tensorflow-Image-Segmentation-Ovarian-Tumor (2024/02/01)</h2>
+<h2>Tensorflow-Image-Segmentation-Ovarian-Tumor (Updted: 2024/10/19)</h2>
+<li>2024/10/18: Retrained Ovarian-Tumor model by using the latest 
+<a href="https://github.com/sarah-antillia/Tensorflow-Image-Segmentation-API">Tensorflow-Image-Segmentation-API</a>,
+.</li>
+<br>
 
 This is an experimental Image Segmentation project for Ovarian-Tumor based on
-the <a href="https://github.com/sarah-antillia/Tensorflow-Image-Segmentation-API">Tensorflow-Image-Segmentation-API</a>.
+the <a href="https://github.com/sarah-antillia/Tensorflow-Image-Segmentation-API">Tensorflow-Image-Segmentation-API</a>,
+and <a href="https://drive.google.com/file/d/1LU7bOmxcZfEBqv3s1RGxYwMNtE4rLPeA/view?usp=sharing">
+Ovarian-Tumor-ImageMask-1Class-Dataset.zip.</a>, which was derived by us from 
+<a href="https://drive.google.com/drive/folders/1c5n0fVKrM9-SZE1kacTXPt1pt844iAs1?usp=sharing">
+MMOTU.</a><br>
 <br>
-As a first trial, we use the simple UNet Model 
-<a href="./src/TensorflowUNet.py">TensorflowSlightlyFlexibleUNet</a> for this Ovarian-Tumor Segmentation.<br>
+
+<hr>
+<b>Actual Image Segmentation for Images of 512x512 pixels</b><br>
+As shown below, the inferred masks look similar to the ground truth masks. <br>
+
+<table>
+<tr>
+<th>Input: image</th>
+<th>Mask (ground_truth)</th>
+<th>Prediction: inferred_mask</th>
+</tr>
+<tr>
+<td><img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/mini_test/images/177.jpg" width="320" height="auto"></td>
+<td><img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/mini_test/masks/177.jpg" width="320" height="auto"></td>
+<td><img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/mini_test_output/177.jpg" width="320" height="auto"></td>
+</tr>
+
+<tr>
+<td><img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/mini_test/images/230.jpg" width="320" height="auto"></td>
+<td><img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/mini_test/masks/230.jpg" width="320" height="auto"></td>
+<td><img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/mini_test_output/230.jpg" width="320" height="auto"></td>
+</tr>
+
+<tr>
+<td><img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/mini_test/images/399.jpg" width="320" height="auto"></td>
+<td><img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/mini_test/masks/399.jpg" width="320" height="auto"></td>
+<td><img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/mini_test_output/399.jpg" width="320" height="auto"></td>
+</tr>
+
+</table>
+
+<hr>
+<br>
+In this experiment, we used the simple UNet Model 
+<a href="./src/TensorflowUNet.py">TensorflowSlightlyFlexibleUNet</a> for this Alzheimer-s-Disease Segmentation Model.<br>
 As shown in <a href="https://github.com/sarah-antillia/Tensorflow-Image-Segmentation-API">Tensorflow-Image-Segmentation-API</a>.
 you may try other Tensorflow UNet Models:<br>
 
@@ -13,7 +54,10 @@ you may try other Tensorflow UNet Models:<br>
 <li><a href="./src/TensorflowAttentionUNet.py">TensorflowAttentionUNet.py</a></li>
 <li><a href="./src/TensorflowEfficientUNet.py">TensorflowEfficientUNet.py</a></li>
 <li><a href="./src/TensorflowUNet3Plus.py">TensorflowUNet3Plus.py</a></li>
+<li><a href="./src/TensorflowDeepLabV3Plus.py">TensorflowDeepLabV3Plus.py</a></li>
+
 <br>
+
 
 Please see also the previous experiment <a href="https://github.com/sarah-antillia/Image-Segmentation-Ovarian-Tumor">
 Image-Segmentation-Ovarian-Tumor"</a>
@@ -73,8 +117,14 @@ dataset_stat.bat
 , which generates the following <b>Ovarian-Tumor_Statistics.png</b> file.<br>
 <b>Ovarian-Tumor_Statistics</b><br>
 <img src ="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/Ovarian-Tumor_Statistics.png" width="512" height="auto"><br>
-
-
+As shown above, the number of images of train and valid datasets is enough to use for a training set for our segmentation model,
+<br><br>
+<b>Train_images_sample</b><br>
+<img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/asset/train_images_sample.png" width="1024" height="auto">
+<br>
+<b>Train_masks_sample</b><br>
+<img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/asset/train_masks_sample.png" width="1024" height="auto">
+<br>
 <h3>
 <a id="3">
 3 TensorflowSlightlyFlexibleUNet
@@ -84,55 +134,7 @@ This <a href="./src/TensorflowUNet.py">TensorflowUNet</a> model is slightly flex
 For example, <b>TensorflowSlightlyFlexibleUNet/Ovarian-Tumor</b> model can be customizable
 by using <a href="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/train_eval_infer.config">
 train_eval_infer.config.</a>
-<pre>
-; train_eval_infer.config
-; 2024/01/31 (C) antillia.com
 
-[model]
-model          = "TensorflowUNet"
-;base_kernels   = (5,5)
-dilation       = (2,2)
-image_width    = 512
-image_height   = 512
-image_channels = 3
-num_classes    = 1
-base_filters   = 16
-num_layers     = 7
-dropout_rate   = 0.08
-learning_rate  = 0.0001
-
-loss           = "bce_iou_loss"
-;loss           = "binary_crossentropy"
-metrics        = ["binary_accuracy"]
-show_summary   = False
-
-[train]
-epochs        = 100
-batch_size    = 4
-patience      = 10
-metrics       = ["binary_accuracy", "val_binary_accuracy"]
-
-model_dir     = "./models"
-eval_dir      = "./eval"
-
-image_datapath = "../../../dataset/Ovarian-Tumor/train/images/"
-mask_datapath  = "../../../dataset/Ovarian-Tumor/train/masks/"
-
-[eval]
-image_datapath = "../../../dataset/Ovarian-Tumor/valid/images/"
-mask_datapath  = "../../../dataset/Ovarian-Tumor/valid/masks/"
-
-[infer] 
-images_dir    = "../../../dataset/Ovarian-Tumor/test/images/"
-output_dir    = "./test_output"
-merged_dir    = "./test_output_merged"
-green_mask    = True
-
-[mask]
-blur      = False
-binarize  = True
-threshold = 128
-</pre>
 
 <h3>
 3.1 Training
@@ -145,16 +147,97 @@ and run the following bat file to train TensorflowUNet model for Ovarian-Tumor.<
 <pre>
 python ../../../src/TensorflowUNetTrainer.py ./train_eval_infer.config
 </pre>
-Train console output:<br>
-<img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/asset/train_console_output_at_epoch_42.png" width="720" height="auto"><br>
+
+<b>Model parameters</b><br>
+Defined a small <b>base_filters</b> and large <b>base_kernels</b> for the first Conv Layer of Encoder Block of 
+<a href="./src/TensorflowUNet.py">TensorflowUNet.py</a> 
+and a large num_layers (including a bridge between Encoder and Decoder Blocks).
+<pre>
+[model]
+model          = "TensorflowUNet"
+generator      = True
+image_width    = 512
+image_height   = 512
+image_channels = 3
+base_filters   = 16
+base_kernels   = (9,9)
+num_layers     = 8
+dilation       = (1,1)
+</pre>
+
+<b>Learning rate</b><br>
+Defined a small learning rate.  
+<pre>
+[model]
+learning_rate  = 0.00008
+</pre>
+
+<b>Online augmentation</b><br>
+Enabled our online augmentation.  
+<pre>
+[model]
+model         = "TensorflowUNet"
+generator     = True
+</pre>
+
+<b>Loss and metrics functions</b><br>
+Specified "bce_dice_loss" and "dice_coef".<br>
+<pre>
+[model]
+loss           = "bce_dice_loss"
+metrics        = ["dice_coef"]
+</pre>
+<b>Learning rate reducer callback</b><br>
+Enabled learing_rate_reducer callback, and a small reducer_patience.
+<pre> 
+[train]
+learning_rate_reducer = True
+reducer_factor     = 0.4
+reducer_patience   = 4
+</pre>
+
+<b>Early stopping callback</b><br>
+Enabled early stopping callback with patience parameter.
+<pre>
+[train]
+patience      = 10
+</pre>
+
+<b>Epoch change inference callbacks</b><br>
+Enabled epoch_change_infer and epoch_changeinfer callbacks.<br>
+<pre>
+[train]
+epoch_change_infer       = True
+epoch_change_infer_dir   =  "./epoch_change_infer"
+epoch_changeinfer        = False
+epoch_changeinfer_dir    = "./epoch_changeinfer"
+num_infer_images         = 6
+</pre>
+
+By using these callbacks, on every epoch_change, the inference procedures can be called
+ for 6 images in <b>mini_test</b> folder. These will help you confirm how the predicted mask changes 
+ at each epoch during your training process.<br> <br> 
+
+<b>Epoch_change_inference output</b><br>
+<img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/asset/epoch_change_infer.png" width="1024" height="auto"><br>
+<br>
 <br>
 
-Train metrics:<br>
-<img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/asset/train_metrics.png" width="720" height="auto"><br>
+In this experiment, the training process was stopped at epoch 45 by EarlyStopping Callback.<br><br>
+
+Train console output:<br>
+<img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/asset/train_console_output_at_epoch_45.png" width="720" height="auto"><br>
 <br>
-Train losses:<br>
-<img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/asset/train_losses.png" width="720" height="auto"><br>
- 
+
+<br>
+<a href="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/eval/train_metrics.csv">train_metrics.csv</a><br>
+<img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/eval/train_metrics.png" width="520" height="auto"><br>
+
+<br>
+<a href="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/eval/train_losses.csv">train_losses.csv</a><br>
+<img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/eval/train_losses.png" width="520" height="auto"><br>
+
+<br>
 <h3>
 3.2 Evaluation
 </h3>
@@ -167,11 +250,17 @@ and run the following bat file to evaluate TensorflowUNet model for Ovarian-Tumo
 python ../../../src/TensorflowUNetEvaluator.py ./train_eval_infer.config
 </pre>
 <b>Evaluation console output:</b><br>
-<img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/asset/evaluate_console_output_at_epoch_42.png" width="720" height="auto"><br>
-As shown above, the accuracy 0.9789 for test dataset is higher than the accuracy 0.7592 of
-the first experiment <a href="https://github.com/sarah-antillia/Image-Segmentation-Ovarian-Tumor">Image-Segmentation-Ovarian-Tumor</a><br>
-<b>Evaluation result of the first Image-Segmentation-Ovarian-Tumor</b>:<br>
-<img src="https://github.com/sarah-antillia/Image-Segmentation-Ovarian-Tumor/blob/main/asset/evaluate_console_output_at_epoch_33_0728.png" width="720" height="auto"><br>
+<img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/asset/evaluate_console_output_at_epoch_45.png" width="720" height="auto"><br>
+<br>
+The loss (bce_dice_loss) to this Ovarian-Tumor/test was low, and dice_coef relatively high as shown below.
+<br>
+<pre>
+loss,0.0975
+dice_coef,0.89
+</pre>
+
+
+<br>
 
 <h2>
 3.3 Inference
@@ -184,81 +273,56 @@ Please move to a <b>./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor</b> 
 <pre>
 python ../../../src/TensorflowUNetInferencer.py ./train_eval_infer.config
 </pre>
-Sample test images<br>
-<img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/asset/sample_test_images.png" width="1024" height="auto"><br>
-Sample test mask<br>
-<img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/asset/sample_test_masks.png" width="1024" height="auto"><br>
+mini_test images<br>
+<img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/asset/mini_test_images.png" width="1024" height="auto"><br>
+mini_test mask (ground_truth)<br>
+<img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/asset/mini_test_masks.png" width="1024" height="auto"><br>
 
 <br>
 Inferred test masks<br>
-<img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/asset/inferred_test_mask.png" width="1024" height="auto"><br>
+<img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/asset/mini_test_output.png" width="1024" height="auto"><br>
 <br>
-Merged test images and inferred masks<br> 
-<img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/asset/merged_test_output.png" width="1024" height="auto"><br> 
 
-Enlarged samples<br>
+<b>Enlarged images and masks </b><br>
+
 <table>
 <tr>
-<td>
-test/images/15.jpg<br>
-<img src="./dataset/Ovarian-Tumor/test/images/15.jpg" width="512" height="auto">
-
-</td>
-<td>
-Inferred merged/15.jpg<br>
-<img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/test_output_merged/15.jpg" width="512" height="auto">
-</td> 
+<th>Image</th>
+<th>Mask (ground_truth)</th>
+<th>Inferred-mask</th>
 </tr>
 
 <tr>
-<td>
-test/images/50.jpg<br>
-<img src="./dataset/Ovarian-Tumor/test/images/50.jpg" width="512" height="auto">
-
-</td>
-<td>
-Inferred merged/50.jpg<br>
-<img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/test_output_merged/50.jpg" width="512" height="auto">
-</td> 
-</tr>
-
-
-<tr>
-<td>
-test/images/195.jpg<br>
-<img src="./dataset/Ovarian-Tumor/test/images/195.jpg" width="512" height="auto">
-
-</td>
-<td>
-Inferred merged/195.jpg<br>
-<img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/test_output_merged/195.jpg" width="512" height="auto">
-</td> 
+<td><img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/mini_test/images/181.jpg" width="320" height="auto"></td>
+<td><img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/mini_test/masks/181.jpg" width="320" height="auto"></td>
+<td><img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/mini_test_output/181.jpg" width="320" height="auto"></td>
 </tr>
 
 <tr>
-<td>
-test/images/412.jpg<br>
-<img src="./dataset/Ovarian-Tumor/test/images/412.jpg" width="512" height="auto">
-
-</td>
-<td>
-Inferred merged/412.jpg<br>
-<img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/test_output_merged/412.jpg" width="512" height="auto">
-</td> 
+<td><img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/mini_test/images/291.jpg" width="320" height="auto"></td>
+<td><img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/mini_test/masks/291.jpg" width="320" height="auto"></td>
+<td><img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/mini_test_output/291.jpg" width="320" height="auto"></td>
 </tr>
 
 <tr>
-<td>
-test/images/flipped_1296.jpg<br>
-<img src="./dataset/Ovarian-Tumor/test/images/flipped_1296.jpg" width="512" height="auto">
-
-</td>
-<td>
-Inferred merged/flipped_1296.jpg<br>
-<img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/test_output_merged/flipped_1296.jpg" width="512" height="auto">
-</td> 
+<td><img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/mini_test/images/289.jpg" width="320" height="auto"></td>
+<td><img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/mini_test/masks/289.jpg" width="320" height="auto"></td>
+<td><img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/mini_test_output/289.jpg" width="320" height="auto"></td>
 </tr>
+<tr>
+<td><img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/mini_test/images/408.jpg" width="320" height="auto"></td>
+<td><img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/mini_test/masks/408.jpg" width="320" height="auto"></td>
+<td><img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/mini_test_output/408.jpg" width="320" height="auto"></td>
+</tr>
+<tr>
+<td><img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/mini_test/images/412.jpg" width="320" height="auto"></td>
+<td><img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/mini_test/masks/412.jpg" width="320" height="auto"></td>
+<td><img src="./projects/TensorflowSlightlyFlexibleUNet/Ovarian-Tumor/mini_test_output/412.jpg" width="320" height="auto"></td>
+</tr>
+
 </table>
+<hr>
+<br>
 
 <h3>
 References
